@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<head>
+<script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+<script src="./js/examples.js" ></script>
+<script src="./libs/easeljs-NEXT.min.js"></script>
+<script src="./libs/tweenjs-NEXT.js"></script>
+<script src="./libs/DotPlugin.js"></script>
+<script>
+//circle
+let stage; 
+ 
+const init = () => {
+  
+    stage = new createjs.Stage('canvas1'); 
+    let width = '800';
+    let height = '300';
+
+    stage.canvas.width = width;
+    stage.canvas.height = height;
+    let leftBound  = 0;
+    let circleCoordinates = [
+                   {x: leftBound + 100, y:  50, radius: 20, color: '#e34946'}, //lightred
+                   {x: leftBound + 450, y: height - 20, radius: 20, color: 'greenyellow'}, 
+                   {x: 500, y: height -20, radius: 20, color: '#87CEFA'},
+                   {x: 250, y: height - 30, radius: 30, color: 'yellow'},
+                   {x: width - 100, y: height - 10, radius: 10, color: '#9400D3'}, //violet
+                   {x: 100, y: 240, radius: 35, color: 'orange'}, // skyblue                    
+    ];
+
+    let renderedCircles = [];
+    circleCoordinates.forEach( (coords) => {
+        let circle = new createjs.Shape();
+        	circle.graphics.setStrokeStyle(16);
+			circle.graphics.beginStroke("#113355");
+
+        circle.graphics.beginFill(coords.color).drawCircle(0,0, coords.radius);
+        circle.x = coords.x;
+        circle.y = coords.y;                 
+        renderedCircles.push(circle);
+        stage.addChild(circle);       
+    });
+ 
+      
+    const evenRow = (number) => {
+        return number % 2 === 0;
+    }
+
+
+    createjs.Ticker.setFPS(60);
+    //createjs.Ticker.timingMode = createjs.Ticker.RAF;
+    createjs.Ticker.addEventListener('tick', stage);
+     
+
+    setTimeout( () => { 
+        let c = 0;
+        let stepY = 350;
+        let stepX = 10; 
+        let stepCount = 6;
+        let x = 0; //x %2
+        renderedCircles.forEach( (circle) => {  
+            console.log('curr. circle', circle);
+            stepY = stepY - 50; 
+            console.log('init step X', stepX);
+
+            let theTween = createjs.Tween;
+            //step up ^ 
+            for (c = 0; c < stepCount; c++){
+                if ( evenRow(c) ){
+                    stepX = stepX - 20;
+                } else  {
+                    stepX = stepX + 40; 
+                } 
+
+             theTween.get(circle, {loop: true} ) 
+                    .to( {x:circle.x  + stepX,  y:  circle.y - stepY},
+                      1900,
+                      createjs.Ease.backInOut()
+              );
+
+            }  
+
+               
+            //createjs.Tween.get(circle, {loop: true} ) 
+            //.to({x:circle.x  - 10,  y:-100} , 1500 , createjs.Ease.backOut() );  
+            c++;           
+        }); 
+    }, 10);
+    
+  
+}
+window.onload = init;
+</script>
+</head>
+<body>
+<canvas style="background: #b9b9ff" id="canvas1" width="800" height="600" style="border: 1px solid #eee ;"></canvas>
+</body>
+</html>
