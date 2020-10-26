@@ -1,0 +1,57 @@
+ul {
+    padding: 15px 20px;
+    background: #3C4147;
+    border-radius: 10px;
+    width: 56px;
+    display: inline-block;
+    margin-right: 50px;
+}
+
+ul li {
+    margin-top: 5px;
+}
+
+li {
+    width: 60px;
+    height: 60px;
+    display: block;
+    border-radius: 50px;
+    background-color: #292929;
+}
+
+@keyframes firstlight {
+    100% {
+        background-color: #56d600;
+    }
+}
+
+@keyframes secondlight {
+    100% {
+        background-color: yellow;
+    }
+}
+
+@keyframes thirdlight {
+    100% {
+        background-color: red;
+    }
+}
+
+li:nth-child(1) {
+    animation: firstlight 2s backwards;
+}
+
+li:nth-child(2) {
+    animation: secondlight 2s backwards 2s;
+    /* 2 sec after 2 sec*/
+}
+
+li:nth-child(3) {
+    animation: thirdlight 2s backwards 4s;
+    /* after 4 sec */
+}
+
+li {
+    background-color: rgb(51, 51, 51);
+    animation-timing-function: ease-out !important;
+}
