@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <head>
-<script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
-<script src="./js/examples.js" ></script>
+<script src="https://code.createjs.com/1.0.0/createjs.min.js"></script> 
 <script src="./libs/easeljs-NEXT.min.js"></script>
 <script src="./libs/tweenjs-NEXT.js"></script>
 <script src="./libs/DotPlugin.js"></script>
@@ -19,8 +18,9 @@ const init = () => {
     stage.canvas.height = height;
     let leftBound  = 0;
     let circleCoordinates = [
-                   {x: leftBound + 100, y:  50, radius: 20, color: '#e34946'}, //lightred
-                   {x: leftBound + 450, y: height - 20, radius: 20, color: 'greenyellow'}, 
+                   /*{x: leftBound + 100, y:  height-100, radius: 20, color: '#e34946'}, //lightred*/
+                   {x: leftBound + 450, y: height - 20, radius: 20, color: '#e34946'}, 
+                   {x: leftBound + 150, y: height - 20, radius:  16, color: 'greenyellow'}, 
                    {x: 500, y: height -20, radius: 20, color: '#87CEFA'},
                    {x: 250, y: height - 30, radius: 30, color: 'yellow'},
                    {x: width - 100, y: height - 10, radius: 10, color: '#9400D3'}, //violet
@@ -44,44 +44,38 @@ const init = () => {
     const evenRow = (number) => {
         return number % 2 === 0;
     }
-
-
-    createjs.Ticker.setFPS(60);
-    //createjs.Ticker.timingMode = createjs.Ticker.RAF;
-    createjs.Ticker.addEventListener('tick', stage);
-     
-
+ 
+    createjs.Ticker.setFPS(60); 
+    createjs.Ticker.addEventListener('tick', stage); 
     setTimeout( () => { 
         let c = 0;
-        let stepY = 350;
-        let stepX = 10; 
-        let stepCount = 6;
+        let stepY = 600;
+        let stepX = 100; 
+        let stepCount = 2;
         let x = 0; //x %2
         renderedCircles.forEach( (circle) => {  
             console.log('curr. circle', circle);
             stepY = stepY - 50; 
             console.log('init step X', stepX);
 
+            //speedslowwing:
+            if ( evenRow(c) ){
+                stepX = stepX - 10;
+            } else  {
+                stepX = stepX + 40; 
+            } 
+
             let theTween = createjs.Tween;
             //step up ^ 
-            for (c = 0; c < stepCount; c++){
-                if ( evenRow(c) ){
-                    stepX = stepX - 20;
-                } else  {
-                    stepX = stepX + 40; 
-                } 
-
+            for (c = 0; c < stepCount; c++){ 
+             stepX = stepX + 50;
              theTween.get(circle, {loop: true} ) 
                     .to( {x:circle.x  + stepX,  y:  circle.y - stepY},
                       1900,
                       createjs.Ease.backInOut()
               );
-
-            }  
-
-               
-            //createjs.Tween.get(circle, {loop: true} ) 
-            //.to({x:circle.x  - 10,  y:-100} , 1500 , createjs.Ease.backOut() );  
+            }   
+             
             c++;           
         }); 
     }, 10);
