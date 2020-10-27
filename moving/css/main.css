@@ -1,67 +1,41 @@
 .stick {
     width: 20px;
     height: 150px;
-    animation: moving 4s ease-out;
+    animation: moving 3s ease-out;
     background-color: grey;
+    margin-top: 150px;
 }
 
 
-/* how to do rotate several times */
-
-
-/* pridumat kak plavnoe dvizhenie */
+/* посчитать равномерную скорость */
 
 @keyframes moving {
-    15% {
-        transform: rotate(15deg);
-        margin-left: calc(15px * 2);
-    }
-    25% {
-        transform: rotate(25deg);
-        margin-left: calc(25px * 2);
-    }
-    30% {
-        transform: rotate(35deg);
-        margin-left: calc(36px *2);
-    }
-    40% {
-        transform: rotate(45deg);
-        margin-left: calc(40px * 2);
-    }
-    50% {
-        transform: rotate(50deg);
-        margin-left: calc(44px * 2);
-    }
-    60% {
-        transform: rotate(60deg);
-        margin-left: calc(60px * 2);
-        background-color: orange;
-    }
-    70% {
-        transform: rotate(68deg);
-        margin-left: calc(80px * 2);
-    }
-    80% {
-        transform: rotate(72deg);
-        margin-left: calc(90px * 2);
+    5% {
+        transform: rotate(20deg);
+        margin-left: calc(5px * 1.5);
         background-color: red;
     }
+    20% {
+        transform: rotate(180deg);
+        margin-left: calc(40px * 1.8);
+    }
+    30% {
+        margin-top: 75px;
+    }
+    50% {
+        transform: rotate(360deg);
+        margin-left: calc(80px * 2);
+        background-color: orange;
+    }
     85% {
-        transform: rotate(85deg);
-        margin-left: calc(100px * 2);
-    }
-    90% {
-        transform: rotate(92deg);
-        margin-left: calc(120px * 2);
-    }
-    95% {
-        transform: rotate(95deg);
-        margin-left: calc(150px * 1.8);
-        background-color: purple;
+        transform: rotate(465deg);
+        margin-left: calc(150px * 2);
+        margin-top: 0;
     }
     100% {
-        transform: rotate(96deg);
-        margin-left: calc(160px * 1.7);
+        margin-top: 0;
+        transform: rotate(480deg);
+        margin-left: calc(200px * 3);
         background-color: purple;
     }
 }
