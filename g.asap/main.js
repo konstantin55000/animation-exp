@@ -15,7 +15,7 @@
      }
 
      function processObjects(elm) {
-         gsap.to(elm, rotationCoords(6, 15), { y: h + 5, repeat: -1, delay: -5, ease: Power2.easeOut });
+         gsap.fromTo(elm, rotationCoords(6, 15), { y: -50 }, { y: h + 50, repeat: -1, delay: -5, ease: Power2.easeOut })
          gsap.to(elm, rotationCoords(2, 8), { x: '+=300', rotationX: rotationCoords(0, 360), rotationY: rotationCoords(0, 360), repeat: -1, yoyo: true, ease: Sine.easeInOut, delay: -15 });
      };
 
