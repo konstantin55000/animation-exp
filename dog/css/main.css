@@ -82,8 +82,8 @@ body {
 }
 
 .tail {
-    height: 86px;
-    width: 94px;
+    left: 83px;
+    top: 67px;
     position: absolute;
     z-index: 1;
     left: 80px;
