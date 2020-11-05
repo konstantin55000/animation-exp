@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="authoring-tool" content="The Banner">
+    <meta name="ad.size" content="width=970,height=250">
+    <title>Pulsing banner</title>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js">
+    </script> -->
+    <style>
+        body {
+            font-family: serif;
+            overflow: hidden;
+        }
+        
+        a {
+            border: none;
+            text-decoration: none;
+        }
+        
+        .banner_container {
+            background: orange url(https://cdn.glitch.com/876d67c1-3522-40de-9673-fcbfcc336dcb%2Fsolnce.jpg?v=1604597327613) 0 0 no-repeat;
+            background-size: cover;
+            height: 250px;
+            width: 480px;
+            overflow: hidden;
+            position: relative;
+            padding: 40px;
+        }
+        
+        .action {
+            color: white;
+            background: #000;
+            font-size: 16px;
+            font-family: serif;
+            animation-delay: 2s;
+            animation: pulsing 4s infinite ease;
+            padding: 15px;
+            border-radius: 10px;
+            position: absolute;
+            bottom: 50px;
+            right: 50px;
+        }
+        
+        @keyframes pulsing {
+            0% {
+                transform: scale(1);
+            }
+            49% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            85% {
+                transform: scale(1.1);
+            }
+            90% {
+                transform: scale(1.05);
+            }
+            95% {
+                transform: scale(1.08);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        h2 {
+            color: #fff;
+        }
+        
+        .easing-top {
+            animation: 1.5s movingtitle ease;
+            margin-top: 30px;
+            animation-fill-mode: forwards;
+        }
+        
+        @keyframes movingtitle {
+            100% {
+                margin-top: 0;
+            }
+        }
+        
+        .close {
+            position: fixed;
+            right: 15px;
+            top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="banner_container">
+        <img id="close-open-button" class="close" src="//media.adrcdn.com/ad-resources/weborama_close_88x88.png">
+        <h2>The title</h2>
+        <h2 class="easing-top">Easing title</h2>
+        <a href="#" class="action">Bounce button</a>
+    </div>
+</body>
+
+</html>
