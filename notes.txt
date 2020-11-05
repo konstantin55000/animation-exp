@@ -1,8 +1,11 @@
 Examples:
 https://circles-move.glitch.me 
 https://wind-papers.glitch.me/
+
+
 ---
 Draft:
 https://throwingmovement.glitch.me
 
 
+По наведению на кнопку - пес должен зашевелить соответствующей частью тела
