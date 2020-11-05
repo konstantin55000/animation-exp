@@ -73,6 +73,9 @@
         
         .easing-top {
             animation: 1.5s movingtitle ease;
+            -webkit-animation: 1.5s movingtitle ease;
+            -moz-animation: 1.5s movingtitle ease;
+            -o-animation: 1.5s movingtitle ease;
             margin-top: 30px;
             animation-fill-mode: forwards;
         }
@@ -84,16 +87,48 @@
         }
         
         .close {
-            position: fixed;
+            position: absolute;
             right: 15px;
             top: 15px;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+        }
+        /* Hidden , shown */
+        
+        .minimised {
+            height: 1px;
+            overflow: hidden;
         }
     </style>
+    <script>
+        window.onload = () => {
+            let button = document.querySelector('#close-open-button');
+            let banner_container = document.querySelector('#banner_container');
+
+            button.addEventListener('click', (ev) => {
+                ev.preventDefault();
+                banner_container.classList.add('minimised');
+                console.log(banner_container);
+                let btn = document.querySelector('#close-open-button.minimised');
+                btn.addEventListener('click', (ev) => {
+                    ev.preventDefault();
+                    banner_container.classList.remove('minimised');
+                });
+
+            });
+
+
+        }
+    </script>
 </head>
 
 <body>
-    <div class="banner_container">
-        <img id="close-open-button" class="close" src="//media.adrcdn.com/ad-resources/weborama_close_88x88.png">
+    <div id="banner_container" class="banner_container">
+        <a href="#" class="close" id="close-open-button">
+            <img src="https://media.adrcdn.com/ad-resources/weborama_close_88x88.png" />
+        </a>
+        <!-- <img id="close-open-button" src="//media.adrcdn.com/ad-resources/weborama_open_88x88.png" /> -->
         <h2>The title</h2>
         <h2 class="easing-top">Easing title</h2>
         <a href="#" class="action">Bounce button</a>
