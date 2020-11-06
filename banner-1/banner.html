@@ -20,7 +20,7 @@
         }
         
         .orange-background {
-            background: orange url(https://cdn.glitch.com/876d67c1-3522-40de-9673-fcbfcc336dcb%2Fsolnce.jpg?v=1604597327613) 0 0 no-repeat;
+            background: orange url(https://cdn.glitch.com/876d67c1-3522-40de-9673-fcbfcc336dcb%2Fsolnce.jpg?v=1604597327613) 0 0 no-repeat !important;
         }
         
         .banner_container {
@@ -150,33 +150,35 @@
 
 
             const handleClose = (ev) => {
-                alert('handdle close');
-                ev.preventDefault();
-                banner_container.classList.remove('open-icon');
-                banner_container.classList.add('close-icon');
-                banner_container.classList.add('orange-background');
-                banner_container.classList.remove('minimised');
 
-                button.addEventListener('click', handleOpen, {
+                ev.preventDefault();
+                banner_container.classList.add('open-icon');
+                banner_container.classList.remove('close-icon');
+                banner_container.classList.remove('orange-background');
+                banner_container.classList.add('minimised');
+
+
+                button.removeEventListener('click', handleClose, {
                     capture: true
                 });
-                button.removeEventListener('click', handleClose, {
+                button.addEventListener('click', handleOpen, {
                     capture: true
                 });
             }
 
             const handleOpen = (ev) => {
-                alert('handdle open');
+
                 ev.preventDefault();
                 banner_container.classList.remove('open-icon');
                 banner_container.classList.add('close-icon');
                 banner_container.classList.add('orange-background');
                 banner_container.classList.remove('minimised');
 
-                button.addEventListener('click', handleClose, {
+                button.removeEventListener('click', handleOpen, {
                     capture: true
                 });
-                button.removeEventListener('click', handleOpen, {
+
+                button.addEventListener('click', handleClose, {
                     capture: true
                 });
             }
