@@ -19,8 +19,11 @@
             text-decoration: none;
         }
         
-        .banner_container {
+        .orange-background {
             background: orange url(https://cdn.glitch.com/876d67c1-3522-40de-9673-fcbfcc336dcb%2Fsolnce.jpg?v=1604597327613) 0 0 no-repeat;
+        }
+        
+        .banner_container {
             background-size: cover;
             height: 250px;
             width: 480px;
@@ -97,8 +100,47 @@
         /* Hidden , shown */
         
         .minimised {
-            height: 1px;
+            height: 0;
             overflow: hidden;
+            padding-top: 0;
+            padding-bottom: 0;
+            background-color: #eee;
+            background-image: none;
+            height: 40px;
+        }
+        
+        .minimised>a:not(#close-open-button),
+        .minimised>h2 {
+            opacity: 0;
+        }
+        /* Close icon */
+        
+        .banner_container {
+            position: relative;
+        }
+        
+        #close-open-button {
+            width: 44px;
+            height: 30px;
+            background-position-x: center;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        
+        .close-icon,
+        .open-icon {
+            display: inline-block;
+            background: url('./images/close-icons.png') no-repeat;
+            overflow: hidden;
+        }
+        
+        .close-icon {
+            background-position: -2px 0px;
+        }
+        
+        .open-icon {
+            background-position: -2px -32px;
         }
     </style>
     <script>
@@ -106,29 +148,50 @@
             let button = document.querySelector('#close-open-button');
             let banner_container = document.querySelector('#banner_container');
 
-            button.addEventListener('click', (ev) => {
+
+            const handleClose = (ev) => {
+                alert('handdle close');
                 ev.preventDefault();
-                banner_container.classList.add('minimised');
-                console.log(banner_container);
-                let btn = document.querySelector('#close-open-button.minimised');
-                btn.addEventListener('click', (ev) => {
-                    ev.preventDefault();
-                    banner_container.classList.remove('minimised');
+                banner_container.classList.remove('open-icon');
+                banner_container.classList.add('close-icon');
+                banner_container.classList.add('orange-background');
+                banner_container.classList.remove('minimised');
+
+                button.addEventListener('click', handleOpen, {
+                    capture: true
                 });
+                button.removeEventListener('click', handleClose, {
+                    capture: true
+                });
+            }
 
-            });
+            const handleOpen = (ev) => {
+                alert('handdle open');
+                ev.preventDefault();
+                banner_container.classList.remove('open-icon');
+                banner_container.classList.add('close-icon');
+                banner_container.classList.add('orange-background');
+                banner_container.classList.remove('minimised');
 
+                button.addEventListener('click', handleClose, {
+                    capture: true
+                });
+                button.removeEventListener('click', handleOpen, {
+                    capture: true
+                });
+            }
 
+            button.addEventListener('click', handleClose);
         }
     </script>
 </head>
 
 <body>
-    <div id="banner_container" class="banner_container">
-        <a href="#" class="close" id="close-open-button">
-            <img src="https://media.adrcdn.com/ad-resources/weborama_close_88x88.png" />
+
+
+    <div id="banner_container" class="banner_container  orange-background">
+        <a href="#" class="close-icon" id="close-open-button">
         </a>
-        <!-- <img id="close-open-button" src="//media.adrcdn.com/ad-resources/weborama_open_88x88.png" /> -->
         <h2>The title</h2>
         <h2 class="easing-top">Easing title</h2>
         <a href="#" class="action">Bounce button</a>
