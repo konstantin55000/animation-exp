@@ -16,8 +16,27 @@
      });
 
      gsap.to('.product_name', {
-         y: -5,
          alpha: 1
+     });
+
+     let tl_product = gsap.timeline();
+
+     tl_product.to('.product_model_name', {
+         y: -5,
+         alpha: 1,
+         duration: 0.2
+     });
+
+     tl_product.to('.white-label', {
+         y: -5,
+         alpha: 1,
+         duration: 0.2
+     });
+
+     tl_product.to('.product_model', {
+         y: -5,
+         alpha: 1,
+         duration: 0.2
      });
 
      gsap.to('.product_price_old', {
