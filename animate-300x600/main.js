@@ -22,20 +22,17 @@
              prevEl: '#swiper-button-prev',
          },
          on: {
-             init: function() {
-                 product_change_animation('#swiper-container');
-             },
              slideChange: function(ev) {
                  let sw = this;
                  let currIndex = sw.realIndex;
-                 let c = document.querySelector('#action_title');
-                 if (c !== null) {
-                     if (currIndex == 0 || currIndex == 1) {
-                         c.classList.add('hidden');
-                     } else {
-                         c.classList.remove('hidden');
-                     }
-                 }
+                 //  let c = document.querySelector('#action_title');
+                 //  if (c !== null) {
+                 //      if (currIndex == 0 || currIndex == 1) {
+                 //          c.classList.add('hidden');
+                 //      } else {
+                 //          c.classList.remove('hidden');
+                 //      }
+
                  setTimeout(function() {
                      product_change_animation('#swiper-container');
                  }, 10);
@@ -48,5 +45,54 @@
              }
          },
      });
+
      swiperH.autoplay.stop();
+
+     let product_change_animation = () => {
+         gsap.fromTo('.product_price', {
+             rotation: -30
+         }, {
+             rotation: 0,
+             duration: .5,
+             y: 10,
+             alpha: 1,
+             scale: 1.2
+         });
+
+         gsap.to('.product_price_old', {
+             duration: .5,
+             y: 5,
+             alpha: 1,
+             scale: 1.2
+         });
+
+         let tl = gsap.timeline();
+
+         tl.to('.product_img', {
+             x: -10,
+             duration: .3
+         });
+
+         tl.to('.product_img', {
+             x: 0,
+             duration: 0.3
+         });
+
+         tl.to('.product_img', {
+             duration: .3,
+             y: 10,
+             alpha: 1,
+             ease: Power2.easeOut,
+             scale: 1.125
+         });
+
+         tl.to('.product_img', {
+             delay: 0.1,
+             duration: .3,
+             ease: Power2.easeOut,
+             scale: 1
+         });
+
+         gsap.registerPlugin(SplitText, CSSRulePlugin);
+     }
  }

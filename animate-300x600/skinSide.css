@@ -411,7 +411,7 @@ div {
     display: block;
 }
 
-.product_name>.highlighted {
+.product_name>.product_model_name {
     font-size: 64px;
 }
 
