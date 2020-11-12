@@ -103,7 +103,7 @@
             height: 0;
             overflow: hidden;
             padding-top: 0;
-            padding-bottom: 0;
+            padding-bottom: 10px;
             background-color: #eee;
             background-image: none;
             height: 40px;
@@ -117,6 +117,7 @@
         
         .banner_container {
             position: relative;
+            transition: all 5s;
         }
         
         #close-open-button {
@@ -131,12 +132,12 @@
         .close-icon,
         .open-icon {
             display: inline-block;
-            background: url('./images/close-icons.png') no-repeat;
+            background: url('https://cdn.glitch.com/876d67c1-3522-40de-9673-fcbfcc336dcb%2Fclose-icons.png?v=1604665853122') no-repeat;
             overflow: hidden;
         }
         
         .close-icon {
-            background-position: -2px 0px;
+            background-position: -2px -2px;
         }
         
         .open-icon {
@@ -152,11 +153,10 @@
             const handleClose = (ev) => {
 
                 ev.preventDefault();
-                banner_container.classList.add('open-icon');
-                banner_container.classList.remove('close-icon');
+                button.classList.remove('close-icon');
+                button.classList.add('open-icon');
                 banner_container.classList.remove('orange-background');
                 banner_container.classList.add('minimised');
-
 
                 button.removeEventListener('click', handleClose, {
                     capture: true
@@ -169,8 +169,9 @@
             const handleOpen = (ev) => {
 
                 ev.preventDefault();
-                banner_container.classList.remove('open-icon');
-                banner_container.classList.add('close-icon');
+
+                button.classList.add('close-icon');
+                button.classList.remove('open-icon');
                 banner_container.classList.add('orange-background');
                 banner_container.classList.remove('minimised');
 

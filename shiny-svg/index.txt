@@ -1,0 +1,69 @@
+  
+  <html>
+  <body>
+  <style>
+  body {
+    background: #111a22;
+  }
+
+  #animate {
+    position: absolute;
+    left: 250px;
+    top: 20px;
+  } 
+
+  .gradient_test img {
+   
+     background: linear-gradient(49deg, rgba(255,255,255,1) 0%, rgba(238,241,197,0.3) 15%, rgba(249,244,139,0.5) 20%, rgba(255,250,232,1) 30%, rgba(250,255,175,0.5) 42%, rgba(253,255,229,0) 55%);
+  } 
+
+  .holder_container {
+    z-index: 999;
+    position:fixed;
+    top: 0; left:0;
+    background: rgba(255,255,255,0.1);
+  } 
+
+ .holder   {
+    width: 200px;
+    height: 240px;
+    position: relative; 
+    overfow: hidden !important;
+    border: 1px solid goldenrod;
+    z-index: 9999;
+  }
+
+  .gradient_test {
+   width: 200px;
+    height: 240px; 
+   z-index: 10;
+  
+    border: 1px solid red;
+  } 
+ 
+  .gradient_test >img { 
+    width: 1450px;
+    height: 1450px;
+    display: block;
+/*     position: absolute;
+    left:  0;
+    top: 0; */
+    z-index: 1;
+/*     background: url(https://cdn.glitch.com/cf47b94a-54c3-4b47-a370-6b763cccf1fa%2Fgradient.svg?v=1605177995541) 0 0 no-repeat; */
+/*     background-position-y: -125px; */
+/*     background-size: cover;
+    background-position-x: -225px; */
+    object-fit:  contain;
+    opacity: 0.8;
+}
+  .holder img {
+    width: 200px;
+    height: auto;
+  }
+
+  #gradient {
+
+  }
+  </style>
+</body>
+  </html>
