@@ -11,7 +11,7 @@
     <!-- SCRSTICKY: false -->
     <!-- SCRWIDTH: 640 -->
     <!-- SCRHEIGHT: 1200 -->
-    <!-- TEMPLATENAME: PRODUCT BANNER  - rIGHT -->
+    <!-- TEMPLATENAME: PRODUCT BANNER  - RIGHT -->
     <!-- TAGVARS: scrsticky (true, false, scroll), scrvalign (Force vertical align? top, banner or #id. Overwrites sitespecs value!) -->
 
     <link rel="stylesheet" href="skinSide.css" type="text/css">
@@ -19,9 +19,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/CSSRulePlugin.min.js"></script>
 
-    <!-- <script type="text/javascript" src="SplitText.min.js"></script> -->
-    <script type="text/javascript" src="swiper.min.js"></script>
-    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="SplitText.min.js"></script>
+
 
     <!-- <script type="text/javascript" src="animations.js"></script> -->
     <!-- Need jQuery? Use: <script src="//media.adrcdn.com/scripts/jquery.min.js"></script> -->
@@ -42,59 +41,6 @@
         var minWidth = 100;
         // Want to modify the original/max width as well? Use the #scalableContent CSS class below.
         var minBackScaleAmount = .3; //min background scale
-
-
-        /* Template Handlers */
-        window.addEventListener('DOMContentLoaded', () => {
-            console.log(gsap);
-
-            gsap.fromTo('.product_price', {
-                rotation: -30
-            }, {
-                rotation: 0,
-                duration: .5,
-                y: 10,
-                alpha: 1,
-                scale: 1.2
-            });
-
-            gsap.to('.product_price_old', {
-                duration: .5,
-                y: 5,
-                alpha: 1,
-                scale: 1.2
-            });
-
-            let tl = gsap.timeline();
-
-            tl.to('.product_img', {
-                x: -10,
-                duration: .3
-            });
-
-            tl.to('.product_img', {
-                x: 0,
-                duration: 0.3
-            });
-
-            tl.to('.product_img', {
-                duration: .3,
-                y: 10,
-                alpha: 1,
-                ease: Power2.easeOut,
-                scale: 1.125
-            });
-
-            tl.to('.product_img', {
-                delay: 0.1,
-                duration: .3,
-                ease: Power2.easeOut,
-                scale: 1
-            });
-
-            gsap.registerPlugin(SplitText, CSSRulePlugin);
-
-        });
     </script>
 
     <!-- <script src="skinRight.js"></script>   -->
@@ -215,6 +161,8 @@
     <!-- Automated Shared Background - No editing please -->
     <div id="sharedBackground"></div>
 
+    <script type="text/javascript" src="swiper.min.js"></script>
+    <script type="text/javascript" src="main.js"></script>
 </body>
 
 </html>

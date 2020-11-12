@@ -3,6 +3,60 @@
  var is_autoplay = true;
  var last_slide = false;
 
+
+ var animate_current_slide = () => {
+     gsap.fromTo('.product_price', {
+         rotation: -30
+     }, {
+         rotation: 0,
+         duration: .5,
+         y: 10,
+         alpha: 1,
+         scale: 1.2
+     });
+
+     gsap.to('.product_name', {
+         y: -5,
+         alpha: 1
+     });
+
+     gsap.to('.product_price_old', {
+         duration: .5,
+         y: 5,
+         alpha: 1,
+         scale: 1.2
+     });
+
+     let tl = gsap.timeline();
+
+     tl.to('.product_img', {
+         x: -10,
+         duration: .3
+     });
+
+     tl.to('.product_img', {
+         x: 0,
+         duration: 0.3
+     });
+
+     tl.to('.product_img', {
+         duration: .3,
+         y: 10,
+         alpha: 1,
+         ease: Power2.easeOut,
+         scale: 1.125
+     });
+
+     tl.to('.product_img', {
+         delay: 0.1,
+         duration: .3,
+         ease: Power2.easeOut,
+         scale: 1
+     });
+
+     //  gsap.registerPlugin(SplitText, CSSRulePlugin);
+ }
+
  function init_swiper() {
      var swiperH = new Swiper('#swiper-container', {
          autoplay: {
@@ -34,8 +88,8 @@
                  //      }
 
                  setTimeout(function() {
-                     product_change_animation('#swiper-container');
-                 }, 10);
+                     animate_current_slide('#swiper-container');
+                 }, 5);
              },
              autoplayStop: function() {
                  is_autoplay = false;
@@ -48,51 +102,13 @@
 
      swiperH.autoplay.stop();
 
-     let product_change_animation = () => {
-         gsap.fromTo('.product_price', {
-             rotation: -30
-         }, {
-             rotation: 0,
-             duration: .5,
-             y: 10,
-             alpha: 1,
-             scale: 1.2
-         });
-
-         gsap.to('.product_price_old', {
-             duration: .5,
-             y: 5,
-             alpha: 1,
-             scale: 1.2
-         });
-
-         let tl = gsap.timeline();
-
-         tl.to('.product_img', {
-             x: -10,
-             duration: .3
-         });
-
-         tl.to('.product_img', {
-             x: 0,
-             duration: 0.3
-         });
-
-         tl.to('.product_img', {
-             duration: .3,
-             y: 10,
-             alpha: 1,
-             ease: Power2.easeOut,
-             scale: 1.125
-         });
-
-         tl.to('.product_img', {
-             delay: 0.1,
-             duration: .3,
-             ease: Power2.easeOut,
-             scale: 1
-         });
-
-         gsap.registerPlugin(SplitText, CSSRulePlugin);
-     }
  }
+
+ init_swiper();
+
+
+ /* Template Handlers */
+ window.addEventListener('DOMContentLoaded', () => {
+     gsap.registerPlugin(SplitText, CSSRulePlugin);
+     animate_current_slide();
+ });
