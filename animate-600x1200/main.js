@@ -142,20 +142,30 @@
      //      ease: 'none'
      //  });
 
-     let gap = 2;
+     let gap = 3;
 
      let tl2 = gsap.timeline();
 
-     tl2.fromTo('.inner.bottom', gap, {
-         x: 360,
+     tl2.fromTo('.inner.top', gap, {
+         x: -1600,
          repeat: -1,
          ease: 'none',
      }, {
-         x: 0,
+         x: 800,
          repeat: -1,
          ease: 'none'
      });
 
+
+     gsap.fromTo('.inner.bottom', gap, {
+         x: 800,
+         repeat: -1,
+         ease: 'none',
+     }, {
+         x: -1600,
+         repeat: -1,
+         ease: 'none'
+     });
  }
 
  function init_swiper() {
