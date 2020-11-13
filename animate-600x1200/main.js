@@ -76,7 +76,90 @@
      //  gsap.registerPlugin(SplitText, CSSRulePlugin);
  }
 
+ function arrows() {
+
+
+     let tl_arrows = gsap.timeline();
+
+
+     tl_arrows.fromTo('.pre_title', {
+         y: 0
+     }, {
+         y: 8,
+         duration: .5,
+         alpha: 1,
+     });
+
+     tl_arrows.fromTo('.pre_title', {
+
+         alpha: 1
+     }, {
+         x: 800,
+         duration: .5,
+         alpha: 1,
+         delay: .5
+
+     });
+
+     gsap.fromTo('.arrow_red', {
+         x: -200
+     }, {
+         x: 0,
+         duration: .5,
+         alpha: 1,
+
+     });
+
+
+     gsap.fromTo('.arrow_red_fill', {
+         x: 800
+     }, {
+         x: 0,
+         duration: .5,
+         alpha: 1,
+
+     });
+
+     gsap.fromTo('.arrow_red', { x: 0 }, {
+         x: 800,
+         duration: .5,
+         alpha: 0,
+         delay: 1,
+
+     });
+
+     gsap.to('.arrow_red_fill', {
+         x: -800,
+         duration: .5,
+         alpha: 1,
+         delay: 1
+
+     });
+
+     //  gsap.to('.inner.top', 2, {
+     //      x: 360,
+     //      repeat: -1,
+     //      ease: 'none'
+     //  });
+
+     let gap = 2;
+
+     let tl2 = gsap.timeline();
+
+     tl2.fromTo('.inner.bottom', gap, {
+         x: 360,
+         repeat: -1,
+         ease: 'none',
+     }, {
+         x: 0,
+         repeat: -1,
+         ease: 'none'
+     });
+
+ }
+
  function init_swiper() {
+
      var swiperH = new Swiper('#swiper-container', {
          autoplay: {
              delay: time_slider_autoplay,
@@ -98,13 +181,6 @@
              slideChange: function(ev) {
                  let sw = this;
                  let currIndex = sw.realIndex;
-                 //  let c = document.querySelector('#action_title');
-                 //  if (c !== null) {
-                 //      if (currIndex == 0 || currIndex == 1) {
-                 //          c.classList.add('hidden');
-                 //      } else {
-                 //          c.classList.remove('hidden');
-                 //      }
 
                  setTimeout(function() {
                      animate_current_slide('#swiper-container');
@@ -119,15 +195,15 @@
          },
      });
 
-     swiperH.autoplay.stop();
+     // swiperH.autoplay.stop();
 
  }
-
- init_swiper();
-
 
  /* Template Handlers */
  window.addEventListener('DOMContentLoaded', () => {
      gsap.registerPlugin(SplitText, CSSRulePlugin);
+
+     init_swiper();
+     arrows();
      animate_current_slide();
  });
