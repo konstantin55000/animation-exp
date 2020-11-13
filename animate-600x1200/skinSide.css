@@ -779,7 +779,6 @@ div {
 .swiper-button-next,
 .swiper-button-prev {
     /*display: none;*/
-    opacity: 0;
     cursor: pointer;
     position: absolute;
     top: 790px;
