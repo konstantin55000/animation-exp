@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Smart Skins - Right</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- WEBORAMA SCREENAD META DATA (don"t edit/remove) -->
+    <!-- SCRVERSION: screenad_interface_1.0.3 -->
+    <!-- SCRFORMAT: layer -->
+    <!-- SCRSTICKY: false -->
+    <!-- SCRWIDTH: 640 -->
+    <!-- SCRHEIGHT: 1500 -->
+    <!-- TEMPLATENAME: Smart Skins - Left -->
+    <!-- TAGVARS: scrsticky (true, false, scroll), scrvalign (Force vertical align? top, banner or #id. Overwrites sitespecs value!) -->
+
+    <link rel="stylesheet" href="skinSide.css" type="text/css">
+    <script src="https://media.adrcdn.com/scripts/screenad_interface_1.0.3_scrambled.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/CSSRulePlugin.min.js"></script>
+
+    <!-- <script type="text/javascript" src="SplitText.min.js"></script> -->
+    <script type="text/javascript" src="swiper.min.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <!-- <script type="text/javascript" src="animations.js"></script> -->
+
+    <!-- Need jQuery? Use: <script src="//media.adrcdn.com/scripts/jquery.min.js"></script> -->
+    <!-- More libraries needed? Check: support.weborama.nl/hc/en-us/articles/210438526-Libraries -->
+
+    <script type="text/javascript">
+        /* Shared Settings */
+
+        // Shared Background (Cross-Elements) for Skins and Header (if present)
+        var BG_image = false; // Image file name. If non wanted, use: BG_image = false;
+        var BG_color = '#000'; // Color used in space not covered by image. Accepts any CSS color value.
+        var BG_width = 'auto'; // Width of the wallpaper. Use 'auto' for full viewport scalable size. Use a number for (non-scalabe) fixed size.
+
+        /* Template Settings */
+
+        // Activate scaling? This setting affects the "ScalableContent" div
+        var scaleContent = true;
+        // If so, how narrow can the scalable content get?
+        var minWidth = 100;
+        // Want to modify the original/max width as well? Use the #scalableContent CSS class below.
+        var minBackScaleAmount = .3; //min background scale
+
+        /* Template Handlers */
+
+        function onInit() {
+            // Optional (next to initial CSS values)
+            gsap.registerPlugin(SplitText, CSSRulePlugin);
+            gsap.to("#border-bottom-red", 1.5, {
+                x: -212,
+                repeat: -1,
+                ease: 'none'
+            });
+            // gsap.set("#border-top-red", {
+            //     x: -212
+            // });
+            // gsap.to("#border-top-red", 1.5, {
+            //     x: 0,
+            //     repeat: -1,
+            //     ease: 'none'
+            // });
+            // gsap.from("#border-top-red", 1, {
+            //     y: -40
+            // });
+            // gsap.from("#border-bottom-red", 1, {
+            //     y: 40
+            // });
+
+            var tl = gsap.timeline({
+                repeat: 0,
+                repeatDelay: 0
+            });
+            tl.from("#slide1_txt", 1, {
+                    x: -200,
+                    alpha: 0
+                })
+                .from(".arrow_red", 1, {
+                    x: -250,
+                    alpha: 0
+                }, '-=.8')
+                .from(".arrow_red_fill", 1, {
+                    x: 250,
+                    alpha: 0
+                }, '-=.8')
+                .to("#slide1_txt", .5, {
+                    x: 200,
+                    alpha: 0,
+                    ease: 'power3.in'
+                }, '+=1')
+                .to(".arrow_red", .5, {
+                    x: 250,
+                    alpha: 0,
+                    ease: 'power3.in'
+                }, '-=.4')
+                .to(".arrow_red_fill", .5, {
+                    x: -250,
+                    alpha: 0,
+                    ease: 'power3.in'
+                }, '-=.4')
+                .from('.action_title h1', {
+                    y: 100,
+                    alpha: 0
+                }, '-=.3')
+                .from('.action_title h3', {
+                    y: 100,
+                    alpha: 0
+                }, '-=.4')
+                .from('.action_title span', {
+                    y: 100,
+                    alpha: 0
+                }, '-=.4')
+                .to('.action_title', {
+                    duration: 1,
+                    scale: 1,
+                    y: -370,
+                    ease: 'power3.out',
+                    onStart: function() {
+                        screen1_hide();
+                        init_swiper_1();
+                    }
+                }, '+=1')
+                .fromTo("#deals_button", {
+                    x: 300,
+                    alpha: 0,
+                    ease: Power3.easeOut
+                }, {
+                    x: 0,
+                    alpha: 1
+                }, '-=.5')
+                .fromTo("#deals_button_2", {
+                    x: 300,
+                    alpha: 0,
+                    ease: Power3.easeOut
+                }, {
+                    x: 0,
+                    alpha: 1
+                }, '-=.5')
+                .fromTo("#logo_block", {
+                    y: 50,
+                    alpha: 0,
+                    ease: Power3.easeOut
+                }, {
+                    y: 0,
+                    alpha: 1
+                }, '-=.5')
+                .fromTo("#swiper-button-prev", {
+                    x: -100,
+                    autoAlpha: 0
+                }, {
+                    x: 0,
+                    autoAlpha: 1
+                }, '-=.5')
+                .fromTo("#swiper-button-next", {
+                    x: 100,
+                    autoAlpha: 0
+                }, {
+                    x: 0,
+                    autoAlpha: 1
+                }, '-=.7');
+            /*gsap.to("#swiper-container-h", .5, {alpha: 1, ease: Power3.easeOut, onComplete: function () {screen1_hide(); init_swiper_1();}});
+            gsap.fromTo("#deals_button", .6, {x: 300, alpha: 0, ease: Power3.easeOut}, {x: 0, alpha: 1, ease: Power3.easeOut});
+            gsap.fromTo("#deals_button_2", .6, {x: 300, alpha: 0, ease: Power3.easeOut}, { x: 0, alpha: 1, ease: Power3.easeOut});
+            gsap.fromTo("#logo_block", .6, {y: 50, alpha: 0, ease: Power3.easeOut}, {y: 0, alpha: 1, ease: Power3.easeOut});*/
+        }
+
+        // Actions for when all elements show on screen
+        function onStart() {
+            // All elements have been loaded and are ready for the animation to start 
+        }
+    </script>
+
+    <!-- <script src="skinRight.js"></script>   -->
+</head>
+
+<body>
+
+    <div id="stage">
+        <div id="content">
+        </div>
+        <!-- Your Regular HTML Content -->
+        <div id="scalableContent">
+            <!-- Your Scalable HTML Content -->
+            <div class="bg" id="bg"></div>
+            <div class="inner_container inner_container_singles">
+                <div class="singles_day_title">
+                    <h4>MET AFSTAND <span class="red">DE BESTE</span></h4>
+                    <h2 class="arrow_red"> </h2>
+                    <h3 class="arrow_red_fill"> </h3>
+                    <h6 class="pre_party"> </h6>
+                </div>
+            </div>
+
+
+            <div id="swiper-container-h" class="swiper-container-h abs full ">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide ">
+                        <div class="inner_container">
+                            <div class="product_name font_gu">
+                                <span class="red highlighted">Miele</span>
+                                <span class="white-label">WASMACHINE</span>
+                                <span class="product_model">WCD 130 WCS</span>
+                            </div>
+                            <div class="abs font_gb product_price_old  abs">749-</div>
+                            <div class="abs font_gb zi1 product_price " val="699">
+                                <span class="product_price_num">699.-<sup></sup>
+                             </span>
+                            </div>
+                            <div class="product_container">
+                                <img src="Miele_WCD.png" width="380" height="540" alt="" class="product_img product_img_center product_img_center_1">
+                            </div>
+                            <div class="click" onclick="screenad.click('product1');"></div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide ">
+                        <div class="inner_container">
+                            <div class="product_name font_gu ">
+                                <span class="red highlighted">ACER</span>
+                                <span class="white-label lesser-font">WINDOWS-LAPTOP</span>
+                                <span class="product_model model-lesser-font">Aspire 5 (A515-55-576K)</span> </div>
+
+                            <img src="Acer-01.png" alt="" class="product_img product_img_center product_img_center_3">
+                            <div class="abs font_gb product_price_old ">649.-</div>
+                            <div class="abs font_gb zi1 product_price " val="499">
+                                <span class="product_price_num">499.-</span>
+                            </div>
+                            <div class="click" onclick="screenad.click('product3');"></div>
+                        </div>
+                    </div>
+
+
+                    <div class="swiper-slide ">
+                        <div class="inner_container">
+                            <div class="product_name font_gu "><span class="red highlighted">LG</span>
+                                <span class="white-label">OLED-TV</span>
+                                <span class="product_model">OLED55BX6LB</span> </div>
+                            <div class="abs font_gb product_price_old abs">1599.-</div>
+                            <div class="abs font_gb zi1 product_price  " val="1077">
+                                <span class="product_price_num">1077.-</span>
+                            </div>
+                            <div class="product_container">
+                                <img src="img1-LG_OLED.png" alt="" class="product_img product_img_center product_img_center_2">
+                            </div>
+                        </div>
+                        <div class="click" onclick="screenad.click('product2');"></div>
+                    </div>
+
+
+                    <div class="swiper-slide ">
+
+                        <div class="inner_container">
+
+                            <div class="product_name font_gu ">
+                                <span class="red highlighted">DYSON</span>
+                                <span class="white-label">Steelstofzuiger</span>
+                                <span class="product_model">V10 Animal</span>
+                            </div>
+
+                            <img src="Laag.png" alt="" class="product_img  product_img_center product_img_center_4">
+
+                            <div class="abs font_gb product_price_old ">449.-</div>
+                            <div class="abs font_gb zi1 product_price  " val="366">
+                                <span class="product_price_num">366.-</span>
+                            </div>
+                            <div class="click" onclick="screenad.click('product4');"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="swiper-button-prev" id="swiper-button-prev"></div>
+        <div class="swiper-button-next" id="swiper-button-next"></div>
+        <button type="button" class="font_gb abs deals_button zi5" id="deals_button" onclick="screenad.click('btn1')">
+            BESTEL NU
+            <span class="deals_button__part deals_button__first-part" id="deals_button__part">
+            <span class="deals_button__str deals_button__str1" id="deals_button__str1"></span>
+            <span class="deals_button__str deals_button__str2" id="deals_button__str2"></span>  
+            </span>
+      </button>
+
+        <button type="button" class="font_gb abs deals_button deals_button__alt  zi5" id="deals_button_2" onclick="screenad.click('btn2')">
+            HAAL OP IN DE WINKEL
+        <span class="deals_button__space" id="deals_button__space"></span>
+            <span class="deals_button__part " id="deals_button__part">
+            <span class="deals_button__str deals_button__str1" id="deals_button__str1"></span> 
+            <span class="deals_button__str deals_button__str2" id="deals_button__str2"></span>  
+            </span>
+        </button>
+
+        <div class="abs logo_block " id="logo_block"></div>
+    </div>
+    </div>
+
+    <!-- Automated Shared Background - No editing please -->
+    <div id="sharedBackground"></div>
+
+</body>
+
+</html>

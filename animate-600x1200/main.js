@@ -6,14 +6,22 @@
 
  var animate_current_slide = () => {
      gsap.fromTo('.product_price', {
-         rotation: -30
+        scale: 1,
+        alpha: 1
      }, {
+         delay: .1,
          rotation: 0,
          duration: .5,
          y: 10,
          alpha: 1,
          scale: 1.2
      });
+ 
+     gsap.to('.product_price', {
+        scale: 1,
+        alpha: 1,
+        delay: .3,
+     } );
 
      gsap.to('.product_name', {
          alpha: 1
@@ -46,17 +54,19 @@
          scale: 1.2
      });
 
+  
      let tl = gsap.timeline();
+    
+    //removed slide to the left.
+    //  tl.to('.product_img', {
+    //      x: -10,
+    //      duration: .3
+    //  });
 
-     tl.to('.product_img', {
-         x: -10,
-         duration: .3
-     });
-
-     tl.to('.product_img', {
-         x: 0,
-         duration: 0.3
-     });
+    //  tl.to('.product_img', {
+    //      x: 0,
+    //      duration: 0.3
+    //  });
 
      tl.to('.product_img', {
          duration: .3,
@@ -80,7 +90,7 @@
 
 
      let tl_arrows = gsap.timeline();
-
+  
 
      tl_arrows.fromTo('.pre_title', {
          y: 0
@@ -90,24 +100,13 @@
          alpha: 1,
      });
 
-     tl_arrows.fromTo('.pre_title', {
-
-         alpha: 1
-     }, {
-         x: 800,
-         duration: .5,
-         alpha: 1,
-         delay: .5
-
-     });
 
      gsap.fromTo('.arrow_red', {
          x: -200
      }, {
          x: 0,
          duration: .5,
-         alpha: 1,
-
+         alpha: 1 
      });
 
 
@@ -116,33 +115,45 @@
      }, {
          x: 0,
          duration: .5,
-         alpha: 1,
-
+         alpha: 1 ,
+         
      });
 
      gsap.fromTo('.arrow_red', { x: 0 }, {
          x: 800,
-         duration: .5,
-         alpha: 0,
-         delay: 1,
-
+         duration: .9,
+         alpha: 0 ,
+         delay: 1 ,
+         ease: Circ. easeOut 
      });
 
      gsap.to('.arrow_red_fill', {
          x: -800,
-         duration: .5,
-         alpha: 1,
-         delay: 1
-
+         duration: 1,
+         alpha: 0 ,
+         delay: 1 ,
+         ease: Circ. easeOut
+         
      });
 
+     tl_arrows.fromTo('.pre_title', { 
+        alpha: 1
+    }, {
+        x: 800,
+        duration: 1,
+        alpha: 1,
+        delay: .5,
+        ease: Circ. easeOut
+
+    });
+     
      //  gsap.to('.inner.top', 2, {
      //      x: 360,
      //      repeat: -1,
      //      ease: 'none'
      //  });
 
-     let gap = 3;
+     let gap = 7;
 
      let tl2 = gsap.timeline();
 
@@ -153,7 +164,7 @@
      }, {
          x: 800,
          repeat: -1,
-         ease: 'none'
+         ease: 'none'  
      });
 
 
@@ -168,6 +179,50 @@
      });
  }
 
+function init_title() {
+    let ttl = gsap.timeline();
+
+    ttl.to('.inner_container_singles', { 
+        y: -10,
+        duration: .5,
+        alpha: 1, 
+        ease: Power1.easeOut
+          
+    });
+
+     ttl.to('.action_title h1', {
+        delay: 1,
+        y: -10,
+        duration: .5,
+        alpha: 1,
+
+        ease: Power1.easeOut
+          
+    });
+
+    ttl.to('.action_title h2', {
+        y: -10,
+        duration: .2,
+        alpha: 1,
+        delay: 0.1,
+        ease: Power1.easeOut
+    });
+
+    ttl.to('.action_title h3', {
+        y: -10,
+        duration: .2,
+        alpha: 1,
+        delay: 0.1,
+        ease: Power1.easeOut
+    }); 
+
+    ttl.to('.action_title ', {
+        delay:2,
+        y: -300,
+        duration: .5,
+        alpha: 1 
+    });
+}
  function init_swiper() {
 
      var swiperH = new Swiper('#swiper-container', {
@@ -194,7 +249,7 @@
 
                  setTimeout(function() {
                      animate_current_slide('#swiper-container');
-                 }, 5);
+                 }, 3000);
              },
              autoplayStop: function() {
                  is_autoplay = false;
@@ -205,7 +260,7 @@
          },
      });
 
-     // swiperH.autoplay.stop();
+     swiperH.autoplay.stop();
 
  }
 
@@ -215,5 +270,7 @@
 
      init_swiper();
      arrows();
+     init_title();
+    
      animate_current_slide();
  });

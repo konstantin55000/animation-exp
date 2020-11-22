@@ -55,11 +55,9 @@ div {
 }
 
 .action_title {
-   /* position: absolute;
-    top:  25px;
-    left: 40px; */
-    margin: auto !important;
-    background: transparent !important;
+    position: absolute;
+    top: 390px;
+    left: 40px;
 }
 
 .action_title>*,
@@ -70,36 +68,13 @@ div {
     font-weight: 900;
 }
 
-.action_title > * {    
-  opacity: 0;
+.action_title>* {
+    line-height: 0;
 }
-
-.inner_container_singles {
-    opacity: 0;
-}
-
-/*.inner_container_singles > * {
-    opacity: 0;
-}*/
 
 .action_title h1 {
     font-size: 235px;
     color: #fff;
-    line-height: 0 !important;
-}
-
-.action_title h2 {
-    color:#fff;
-    font-size: 80px;
-    margin-top:0;
-    line-height:0;
-}
-
-.action_title h3 {
-    color: #e20613;
-    font-size: 44px;
-    margin-top:0;
-    line-height: 0;
 }
 
 .advert_title h1 {
@@ -110,17 +85,19 @@ div {
     margin-top: 430px;
 }
 
-.action_title.vertical-centered,
-.inner_container_singles.vertical-centered
-{
-    top: 300px;
-}
- 
+
 /* .swiper-wrapper:has( .advert_slide.swiper-slide-active) + div + div + div ,
 .swiper-wrapper:has( .advert_slide.swiper-slide-active) .advert_slide.swiper-slide-active + div + div + div + div  {
       display: none;
 } */
- 
+
+.action_title h3 {
+    font-size: 88px;
+    color: #fff;
+    position: absolute;
+    top: 210px;
+}
+
 .advert_title h3 {
     font-size: 122px;
     color: #fff;
@@ -131,7 +108,11 @@ div {
     display: none;
 }
 
- 
+.action_title span {
+    font-size: 42px;
+    position: absolute;
+    top: 360px;
+}
 
 .advert_title span {
     font-size: 54px;
@@ -223,8 +204,9 @@ div {
     position: absolute;
 }
 
-.red {    
-    color: #e20613;
+.red {
+    /* color: #e31e26 */
+    color: #ff0000;
 }
 
 .full {
@@ -429,7 +411,7 @@ div {
     display: block;
 }
 
-.product_name>.product_model_name {
+.product_name>.highlighted {
     font-size: 64px;
 }
 
@@ -565,20 +547,19 @@ div {
     position: absolute;
 }
 
-.product_img {
+.product_img_center {
     position: absolute;
     display: block;
-    z-index: 290;
 }
 
-.product_img_1 {
+.product_img_center_1 {
     width: 205px;
     height: 290px;
     top: 457px;
-    left: 165px;
+    left: 201px;
 }
 
-.product_img_2 {
+.product_img_center_2 {
     width: 400px;
     height: auto;
     top: 420px;
@@ -586,7 +567,7 @@ div {
     object-fit: cover;
 }
 
-.product_img_3 {
+.product_img_center_3 {
     width: 375px;
     height: 235px;
     left: 130px;
@@ -594,7 +575,7 @@ div {
     height: 266px;
 }
 
-.product_img_4 {
+.product_img_center_4 {
     width: auto;
     height: 370px;
     top: 410px;
@@ -612,7 +593,7 @@ div {
 .deals_button {
     position: absolute;
     left: 120px;
-    top: 1000px;
+    top: 950px;
     border: 0;
     border-right: 2px solid #000;
     cursor: pointer;
@@ -728,11 +709,6 @@ div {
     left: 18px !important
 }
 
-.deals_button__alt {
-    top: 1090px;
-    font-family: 'Geomanist-Regular', sans-serif;
-}
-
 
 /* DEALS BUTTONS END */
 
@@ -792,9 +768,10 @@ div {
 .swiper-button-next,
 .swiper-button-prev {
     /*display: none;*/
+    opacity: 0;
     cursor: pointer;
     position: absolute;
-    top: 580px;
+    top: 790px;
     width: 33px;
     height: 33px;
     z-index: 9910;
@@ -804,11 +781,11 @@ div {
 
 .swiper-button-prev {
     right: auto;
-    left: -20px;
+    left: 5px;
 }
 
 .swiper-button-next {
-    right: 0px;
+    right: 30px;
     left: auto;
 }
 
@@ -817,7 +794,8 @@ div {
     content: "";
     z-index: 9999;
     position: absolute;
-    left: 0px;
+    left: 30px;
+    /* top:400px; */
     width: 33px;
     height: 33px;
     border-left: 7px solid #fff;
@@ -857,7 +835,7 @@ div {
 .singles_day_title {
     position: absolute;
     background-color: #000;
-    margin-top: 0px;
+    margin-top: 25px;
     left: 146px;
     width: 308px;
     height: 207px;
@@ -885,7 +863,6 @@ div {
     height: auto; */
     width: auto;
     height: 80px;
-    margin-top: 5px;
 }
 
 .arrow_red_fill {
@@ -917,75 +894,4 @@ div {
 .friday {
     width: 282px;
     height: 75px;
-}
-
-.border-red {
-    height: 30px;
-    background-color: red;
-    position: relative;
-}
-
-.border-red .inner {
-    position: absolute;
-    height: 59px;
-    width: 20px;
-    transform: rotate(-45deg);
-    background-color: #000;
-    top: -15px;
-}
-
-.border-red .inner.null {
-    left: -180px;
-}
-
-.border-red .inner.first {
-    left: 180px;
-}
-
-.border-red .inner.second {
-    left: calc(180px + 180px);
-}
-
-.border-red .inner.third {
-    left: calc(180px + 180px + 180px);
-}
-
-.border-red .inner.forth {
-    left: calc(180px + 180px + 180px + 180px);
-}
-
-.border-red .inner.fifth {
-    left: calc(180px + 180px + 180px + 180px + 180px);
-}
-
-.border-red .inner.six {
-    left: calc(180px + 180px + 180px + 180px + 180px + 180px);
-}
-
-.border-red .inner.seven {
-    left: calc(180px + 180px + 180px + 180px + 180px + 180px + 180px);
-}
-
-.border-red .inner.eight {
-    left: calc(180px + 180px + 180px + 180px + 180px + 180px + 180px + 180px);
-}
-
-.border-red .inner.bottom {
-    transform: rotate(45deg);
-}
-
-.border-bottom-red .inner.first {
-    left: 103px;
-}
-
-.border-bottom-red .inner.second {
-    left: calc(113px + 190px);
-}
-
-.border-bottom-red .inner.third {
-    left: calc(113px + 190px + 190px);
-}
-
-.border-bottom-red .inner.bottom {
-    transform: rotate(45deg);
 }
