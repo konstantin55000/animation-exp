@@ -95,6 +95,8 @@ div {
     font-size: 80px;
     margin-top:0;
     line-height:0;
+    position: relative;
+    top: -15px;
 }
 
 .action_title h3 {
@@ -102,6 +104,8 @@ div {
     font-size: 44px;
     margin-top:0;
     line-height: 0;
+    position: relative;
+    top: -15px;
 }
 
 .advert_title h1 {

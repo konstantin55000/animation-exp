@@ -220,7 +220,7 @@ function init_title() {
 
     ttl.to('.action_title ', {
         delay:2,
-        y: -300,
+        y: -270,
         duration: .5,
         alpha: 1 
     });
@@ -261,7 +261,7 @@ function init_title() {
          },
      });
 
-     //swiperH.autoplay.stop();
+      swiperH.autoplay.stop();
 
  }
 
