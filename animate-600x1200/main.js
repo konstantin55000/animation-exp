@@ -119,31 +119,33 @@
          
      });
 
-     gsap.fromTo('.arrow_red', { x: 0 }, {
+
+     let arrow_speed = 3;
+     gsap.fromTo('.arrow_red',  { x: 0 , autoAlpha:1,}, {
          x: 800,
-         duration: .9,
-         alpha: 0 ,
+         duration: arrow_speed,
+         autoAlpha: 0.1 ,
          delay: 1 ,
-         ease: Circ. easeOut 
+         ease: Circ.easeOut 
      });
 
-     gsap.to('.arrow_red_fill', {
+     gsap.to('.arrow_red_fill',  {
          x: -800,
-         duration: 1,
-         alpha: 0 ,
+         duration: arrow_speed,
+         autoAlpha: 0.1 ,
          delay: 1 ,
-         ease: Circ. easeOut
+         ease: Circ.easeOut
          
      });
 
      tl_arrows.fromTo('.pre_title', { 
-        alpha: 1
+        autoAlpha:1
     }, {
         x: 800,
-        duration: 1,
-        alpha: 1,
+        duration: arrow_speed,
+        autoAlpha: 0.1,
         delay: .5,
-        ease: Circ. easeOut
+        ease: Circ.easeOut
 
     });
      
@@ -267,10 +269,11 @@ function init_title() {
  /* Template Handlers */
  window.addEventListener('DOMContentLoaded', () => {
      gsap.registerPlugin(SplitText, CSSRulePlugin);
-
-     init_swiper();
+   
      arrows();
      init_title();
-    
-     animate_current_slide();
+     setTimeout(function() {
+        init_swiper();
+        animate_current_slide('#swiper-container');
+    }, 6000);
  });
