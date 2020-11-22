@@ -553,7 +553,8 @@ div {
     height: 50px;
     width: 100%;
     background: url(./logo.svg) 0 0 no-repeat;
-    background-position-x: 160px;
+    background-position-x: 110px;
+    background-size: contain;
     z-index: 200;
 }
 
@@ -925,7 +926,7 @@ div {
     position: absolute;
     height: 59px;
     width: 20px;
-    transform: rotate(-45deg);
+    transform: rotate(45deg);
     background-color: #000;
     top: -15px;
 }
@@ -945,7 +946,7 @@ div {
 .border-red .inner.third {
     left: calc(180px + 180px + 180px);
 }
-
+ 
 .border-red .inner.forth {
     left: calc(180px + 180px + 180px + 180px);
 }
@@ -965,9 +966,36 @@ div {
 .border-red .inner.eight {
     left: calc(180px + 180px + 180px + 180px + 180px + 180px + 180px + 180px);
 }
-
-.border-red .inner.bottom {
-    transform: rotate(45deg);
+ 
+.border-red .inner.nine {
+    left: calc(180px + 180px + 180px + 180px + 180px + 180px + 180px + 180px + 180px);
+}
+.border-red .inner.ten {
+    left: calc(180px + 180px + 180px + 180px + 180px + 180px + 180px + 180px + 180px +180px);
+}
+.border-red .inner.eleven {
+    left: calc(180px + 180px + 180px + 180px + 180px + 180px + 180px + 180px  + 180px + 180px +180px);
+}
+.border-red .inner.twelve {
+    left: calc(180px + 180px + 180px + 180px + 180px + 180px + 180px + 180px + 180px  + 180px + 180px +180px);
+}
+.border-red .inner.thirteen {
+    left: calc(180px + 180px + 180px + 180px + 180px + 180px + 180px + 180px + 180px + 180px  + 180px + 180px +180px);
+}
+.border-red .inner.fourteen {
+    left: calc(180px + 180px + 180px + 180px + 180px + 180px + 180px + 180px +  180px + 180px + 180px  + 180px + 180px +180px);
+}
+.border-red .inner.fifteen {
+    left: calc(180px + 180px + 180px + 180px + 180px + 180px + 180px + 180px +  180px + 180px + 180px  + 180px + 180px +180px + 180px);
+}
+.border-red .inner.sixteen {
+    left: calc(180px + 180px + 180px + 180px + 180px + 180px + 180px + 180px + 180px + 180px + 180px +  180px + 180px + 180px  + 180px + 180px );
+}
+.border-red .inner.seventeen {
+    left: calc(180px + 180px + 180px + 180px + 180px + 180px + 180px + 180px + 180px + 180px + 180px + 180px + 180px +  180px + 180px + 180px  + 180px + 180px );
+}
+.border-red .inner.eighteen {
+    left: calc(180px + 180px + 180px + 180px + 180px + 180px + 180px + 180px + 180px + 180px + 180px + 180px + 180px + 180px +  180px + 180px + 180px  + 180px + 180px);
 }
 
 .border-bottom-red .inner.first {
@@ -982,6 +1010,8 @@ div {
     left: calc(113px + 190px + 190px);
 }
 
-.border-bottom-red .inner.bottom {
-    transform: rotate(45deg);
+.border-bottom-red .inner.bottom, 
+.border-red .inner.bottom {
+    transform: rotate(-45deg);
 }
+ 

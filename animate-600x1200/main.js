@@ -155,7 +155,7 @@
      //      ease: 'none'
      //  });
 
-     let gap = 7;
+     let gap = 14;
 
      let tl2 = gsap.timeline();
 
@@ -261,7 +261,7 @@ function init_title() {
          },
      });
 
-    // swiperH.autoplay.stop();
+     //swiperH.autoplay.stop();
 
  }
 
