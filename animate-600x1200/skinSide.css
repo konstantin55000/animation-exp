@@ -19,7 +19,9 @@
     font-style: normal;
 }
 
-
+:root {
+    --containerHeight: 1500px
+}
 /* Mandatory Template CSS */
 
 body {
@@ -44,7 +46,7 @@ div {
     /* width: 300px;
     height: 600px; */
     width: 600px;
-    height: 1200px;
+    min-height: 1500px;
     z-index: 50;
 }
 
@@ -130,19 +132,15 @@ div {
 .advert_slide #product_price_all {
     display: none;
 }
-
  
-
 .advert_title span {
     font-size: 54px;
 }
 
 #content {
-    position: absolute;
-    /* width: 300px;
-    height: 640px; */
+    position: absolute; 
     width: 600px;
-    height: 1200px;
+    min-height:  var(--containerHeight);
     z-index: 100;
     color: #000;
 }
@@ -152,7 +150,7 @@ div {
     /* width: 300px;
     height: 640px; */
     width: 600px;
-    height: 1200px;
+    min-height:  var(--containerHeight);
     z-index: 150;
     transform-origin: 0% 0%;
     cursor: pointer;
@@ -164,12 +162,10 @@ div {
 /* Your Content CSS */
 
 .bg {
-    /* width: 300px;
-    height: 640px; */
+   
     width: 600px;
-    height: 1200px;
-    position: absolute;
-    /* left: 97px; */
+    height: var(--containerHeight);
+    position: absolute; 
     top: 0px;
     background: #000;
 }
@@ -232,6 +228,10 @@ div {
     top: 0;
     width: 100%;
     height: 100%;
+}
+
+.full.swiper-container-h {
+    top: 200px;
 }
 
 .product_price,
@@ -549,11 +549,11 @@ div {
 
 .logo_block {
     position: absolute;
-    top: 1150px;
+    top: 1400px;
     height: 50px;
     width: 100%;
     background: url(./logo.svg) 0 0 no-repeat;
-    background-position-x: 65px;
+    background-position-x: 160px;
     z-index: 200;
 }
 
@@ -602,8 +602,7 @@ div {
 }
 
 
-/* DEALS BUTTON */
-
+/* DEALS BUTTON */ 
 .deals_button,
 .deals_button__alt {
     left: 110px;
@@ -612,7 +611,7 @@ div {
 .deals_button {
     position: absolute;
     left: 120px;
-    top: 1000px;
+    top: 1190px;
     border: 0;
     border-right: 2px solid #000;
     cursor: pointer;
@@ -630,15 +629,15 @@ div {
     font-weight: normal;
     outline: none!important;
 }
+.deals_button__alt {
+    top: 1280px !important;
+    font-family: 'Geomanist-Regular', sans-serif;
+}
+ 
 
 .deals_button__str1 {
     color: #fff !important;
-}
-
-.deals_button__alt {
-    top: 1035px;
-    font-family: 'Geomanist-Regular', sans-serif;
-}
+} 
 
 .deals_button.deals_button__alt,
 .deals_button__alt {
@@ -695,7 +694,7 @@ div {
     height: 75px;
     position: absolute;
     right: 64px;
-    top: -5px;
+    top: -4px;
     border-left: 5px solid #fff;
     border-right: 5px solid #fff;
     width: 6px;
@@ -728,10 +727,7 @@ div {
     left: 18px !important
 }
 
-.deals_button__alt {
-    top: 1090px;
-    font-family: 'Geomanist-Regular', sans-serif;
-}
+
 
 
 /* DEALS BUTTONS END */
@@ -842,7 +838,7 @@ div {
 
 #border-bottom-red {
     position: absolute;
-    bottom: -5px;
+    bottom: -10px !important;
     left: 0px;
     width: 640px;
 }

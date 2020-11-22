@@ -240,7 +240,6 @@ function init_title() {
          pagination: false,
          loop: true,
          navigation: {
-
              nextEl: '#swiper-button-next',
              prevEl: '#swiper-button-prev',
          },
@@ -251,7 +250,7 @@ function init_title() {
 
                  setTimeout(function() {
                      animate_current_slide('#swiper-container');
-                 }, 3000);
+                 }, 100);
              },
              autoplayStop: function() {
                  is_autoplay = false;
@@ -262,7 +261,7 @@ function init_title() {
          },
      });
 
-     swiperH.autoplay.stop();
+    // swiperH.autoplay.stop();
 
  }
 
