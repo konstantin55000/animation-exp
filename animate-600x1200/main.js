@@ -250,7 +250,7 @@ function init_title() {
 
                  setTimeout(function() {
                      animate_current_slide('#swiper-container');
-                 }, 100);
+                 }, 600);
              },
              autoplayStop: function() {
                  is_autoplay = false;
