@@ -225,7 +225,67 @@ function init_title() {
         alpha: 1 
     });
 }
- function init_swiper() {
+
+function init_buttons() {
+    let ttl = gsap.timeline();
+
+  
+
+  
+
+    ttl.fromTo('#deals_button', 
+    {x:600}
+    ,{ 
+        x:0,
+        duration: .3,
+        alpha: 1, 
+        ease: Power1.easeOut 
+    });
+
+    ttl.fromTo('#deals_button_2', 
+    {x:600}
+    ,{ 
+        x:0,
+        delay: .1,
+        duration: .3,
+        alpha: 1, 
+        ease: Power1.easeOut 
+    });
+
+    ttl.to('.logo_block', {
+        delay: .3,
+        y: -10,
+        duration: .3,
+        alpha: 1, 
+        ease: Power1.easeOut
+          
+    });
+
+
+    gsap.fromTo('#swiper-button-next', 
+    {x:600}
+    ,{ 
+        x:0,
+        duration: .3,
+        alpha: 1, 
+        delay:  2,
+        ease: Power1.easeOut 
+    });
+
+    
+    gsap.fromTo('#swiper-button-prev', 
+    {x:-50}
+    ,{ 
+        x:30,
+        duration: .3,
+        alpha: 1, 
+        delay:  2,
+        ease: Power1.easeOut 
+    });
+
+}
+
+function init_swiper() {
 
      var swiperH = new Swiper('#swiper-container', {
          autoplay: {
@@ -233,10 +293,7 @@ function init_title() {
              stopOnLastSlide: true
          },
          spaceBetween: 0,
-         // pagination: {
-         //   el: '#swiper-pagination-h',
-         //   clickable: true,
-         // },
+        
          pagination: false,
          loop: true,
          navigation: {
@@ -261,7 +318,7 @@ function init_title() {
          },
      });
 
-      swiperH.autoplay.stop();
+      //swiperH.autoplay.stop();
 
  }
 
@@ -274,5 +331,6 @@ function init_title() {
      setTimeout(function() {
         init_swiper();
         animate_current_slide('#swiper-container');
+        init_buttons();
     }, 6000);
  });
