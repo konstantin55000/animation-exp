@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+   <title>Coll detection</title> 
+    
+ 
+   <script src="gsap.min.js" defer></script> 
+   <script src="Draggable.js" defer></script> 
+ 
+ <style>
+     body{
+         background: lightblue;
+     }
+     .box {
+         height: 80px; width: 80px;
+         border-radius: 100%;
+         border: 3px solid #fff;
+         
+     }
+     .box, .moveright {
+         position: absolute;
+     }
+     .green {
+         background: yellowgreen;
+     }
+     .orange {
+        
+         background: orange;
+     }
+     .moveright {
+         left: 400px;
+         top: 50px;
+     }
+     #container {
+         margin-top: 10px;
+     }
+    </style>
+</head>
+
+<body>
+     
+ <button id="moveright">Move to => </button> 
+ <div id="container" >
+     <div class="box green" id="green">
+     </div>
+     <div class="box orange" id="orange"></div>
+ </div>
+
+ <script>
+     
+  function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+   function getRandom(min, max) {
+    return Math.random() * (max - min) + min;
+}
+  
+     window.addEventListener('DOMContentLoaded', ()=>{
+         var dx = 120;
+         var secondX = 50;
+
+         var dx, dy;
+         var min = 10;
+         var max = 300;
+         var gap = 60;
+
+         dx = getRandomInt(min, max);
+         dy = getRandomInt(min, max);
+
+         distance = getRandomInt(min, max);
+         distanceY = getRandomInt(min, max);
+         gsap.set("#green", {
+             x: dx ,
+             y: dy
+         });
+         
+         var xOrange = dx + distance;
+         var yOrange = dy + distanceY;
+             
+
+         gsap.set("#orange",{
+             x: xOrange  ,
+             y: yOrange
+         });
+         
+     doHitTest = () =>{         
+         
+         var test = Draggable.hitTest("#green", "#orange");
+         if (test) {
+             gap = getRandomInt(gap,gap+10);
+             let timeDelay = getRandomInt(7,8);
+             gsap.to("#orange", 1.2, { 
+                 delay:  1/ timeDelay,
+                 x:  xOrange+ dx,
+                 y: yOrange + gap,
+                 ease:  Cubic.easeOut  
+             });
+          
+         }
+     }
+         
+     let tl1 = gsap.timeline();
+      
+     tl1.to("#green", 1, {
+         x: xOrange,
+         y: yOrange,
+         onUpdate: doHitTest
+     });
+          document.querySelector("#moveright").addEventListener("mousedown", function() {
+              window.location.reload();
+          });
+  
+//     document.querySelector("#moveright").addEventListener("mousedown", function() {
+//        
+//        
+//         
+////          gsap.set("#green", {
+////             x: xOrange ,
+////             y: yOrange
+////         });
+////         
+////       
+////         var xOrange = dx + distance;
+////         var yOrange = dy + distanceY;
+////             
+////
+////         gsap.set("#orange",{
+////             x: xOrange +gap ,
+////             y: yOrange + gap
+////         });
+//         
+//      
+//         
+//       
+//         tl1.to("#green", 1, {
+//             x: xOrange,
+//             y: yOrange,
+//             onUpdate: doHitTest
+//         });
+//         
+//     });
+  });
+    </script>
+
+</body>
+
+</html>

@@ -1,4 +1,5 @@
 
-Animation experiments on GSAP for banners
+Animation experiments on GSAP :
+frontend and making banners
 
 https://clinic-staging.pp.ua/animation/
