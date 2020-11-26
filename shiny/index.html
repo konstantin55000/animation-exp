@@ -1,119 +1,185 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
-<style>
-    body {
-        background: #111;
-    }
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <style>
+        body {
+            background-color: #000;
+        }
+ 
     
-    #animate {
-        position: absolute;
-        left: 250px;
-        top: 20px;
-    }
-    
-    .gradient_test {
-        position: absolute;
-        top: -400px;
-        left: -400px;
-        width: 1400px;
-        height: 1400px;
-        z-index: 2;
-        background: rgb(255, 255, 255);
-        background: linear-gradient(49deg, rgba(255, 255, 255, 1) 0%, rgba(238, 241, 197, 0.3) 7%, rgba(249, 244, 139, 0.5) 13%, rgba(255, 250, 232, 1) 22%, rgba(250, 255, 175, 0.5) 29%, rgba(253, 255, 229, 0) 40%);
-    }
-    
-    body {
-        background: #111a22;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    #animate {
-        position: absolute;
-        left: 48%;
-        top: 20px;
-    }
-    
-    .gradient_test img {
-        width: 100%;
-        height: auto;
-    }
-    
-    .holder {
-        width: 200px;
-        height: 240px;
-        position: relative;
-        overflow: hidden !important;
-        border: 1px solid goldenrod;
-        margin-top: 50px;
-    }
-    
-    .holder img {
-        width: 200px;
-        height: auto;
-        position: absolute;
-        left: 10px;
-        top: 10px;
-        object-fit: contain;
-        z-index: 1;
-    }
-</style>
+        /*    .mask {  
+            mask-repeat: no-repeat;
+            mask-size: contain;
+            -webkit-mask-position: center;        
+            position: absolute;
+            z-index: 2;  
+            mask-size: 610PX 410PX;
+            -webkit-mask-image: linear-gradient(to bottom, transparent 25%, black 75%);
+             mask-image: linear-gradient(to bottom, transparent 25%, black 75%);             
+        } */
 
-<div class="holder">
-    <img src="https://clientsmedia2.adrime.com/5577617018/199806/img3-Oralb.png" />
-    <div id="gradient" class="gradient_test">
 
-        <!-- <?xml version="1.0" encoding="utf-8"?>
-        <!--  
-        <svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1920 1080" style="enable-background:new 0 0 1920 1080;" xml:space="preserve">
-        <style type="text/css">
-            .st0{fill:url(#SVGID_1_);}
-        </style>
-        <g>
-            <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="296.25" y1="1041.25" x2="1151.4255" y2="186.0745">
-                <stop  offset="4.314721e-02" style="stop-color:#2A2A28;stop-opacity:0"/>
-                <stop  offset="8.513603e-02" style="stop-color:#40403F;stop-opacity:0.1355"/>
-                <stop  offset="0.2121" style="stop-color:#7F7F7E;stop-opacity:0.5454"/>
-                <stop  offset="0.3049" style="stop-color:#A6A6A6;stop-opacity:0.8448"/>
-                <stop  offset="0.353" style="stop-color:#B5B5B5"/>
-                <stop  offset="0.3907" style="stop-color:#9A9A9A;stop-opacity:0.9417"/>
-                <stop  offset="0.4564" style="stop-color:#717171;stop-opacity:0.8401"/>
-                <stop  offset="0.5263" style="stop-color:#4E4E4E;stop-opacity:0.7321"/>
-                <stop  offset="0.5998" style="stop-color:#323232;stop-opacity:0.6185"/>
-                <stop  offset="0.6782" style="stop-color:#1C1C1C;stop-opacity:0.4974"/>
-                <stop  offset="0.7637" style="stop-color:#0C0C0C;stop-opacity:0.3652"/>
-                <stop  offset="0.8616" style="stop-color:#030303;stop-opacity:0.2139"/>
-                <stop  offset="1" style="stop-color:#000000;stop-opacity:0"/>
-            </linearGradient>
-            <rect x="289.5" y="208.5" class="st0" width="853" height="826"/>
-            <path d="M1142,209v825H290V209H1142 M1143,208H289v827h854V208L1143,208z"/>
-        </g>
-        </svg> -->
 
+        .mask-miele-wcd {
+            width: 374px;
+            height: 525px;
+             margin-left: 800px;
+           clip-path: polygon(0.37% -0.18%, 10.41% 0.04%, 22.22% -0.13%, 33.02% -0.31%, 43.54% 0.11%, 54.46% -0.21%, 65.26% -0.33%, 79.29% -0.23%, 91.6% -0.19%, 100.18% -0.25%, 100.52% 6.02%, 100.26% 16.78%, 99.93% 31.15%, 100.47% 45.33%, 100.47% 57.63%, 100.51% 71.34%, 100.34% 86.59%, 100.69% 100.52%, 90.16% 99.89%, 76.85% 100.05%, 64.95% 100.24%, 53.03% 100.29%, 42.78% 100%, 31.71% 100.4%, 20.98% 100.4%, 10.1% 100.45%, -0.4% 100.65%, -0.26% 89.38%, 0.12% 74.5%, -0.04% 62.14%, -0.08% 50.75%, -0.2% 39.17%, -0.07% 22.96%);
+
+        }
+
+
+
+        .mask-miele-wcd .img_container {
+            background-repeat: no-repeat;
+            width: 374px;
+            height: 525px;
+            position: relative;
+            background-image: url("Miele_WCD.png");
+        }
+
+        .mask-laag {
+            clip-path: polygon(5.88% 8.37%, 15.01% 8.39%, 27.31% 8.8%, 38.8% 8.46%, 49.69% 8.22%, 60.49% 8.71%, 69% 9%, 78.49% 9.29%, 86.79% 8.95%, 92.96% 8.89%, 93% 34%, 93.02% 43%, 93.18% 53%, 93.02% 61.24%, 92.85% 69.24%, 92.84% 75.51%, 92.97% 83.03%, 66.36% 83.46%, 63.42% 88.27%, 59.41% 89.02%, 52.57% 89.02%, 46.56% 89.02%, 36.11% 87.8%, 31.2% 83.66%, 25% 83.66%, 19% 83.66%, 13.46% 83.12%, 5.03% 82.9%, 5.13% 74.61%, 5.74% 61.15%, 5.59% 49.09%, 5.58% 35.42%, 5.44% 24.2%);
+            width: 298px;
+            height: 549px;
+        }
+
+        .mask-laag .img_container {
+            width: 298px;
+            height: 549px;
+            /*           background-image: url(https://cdn.glitch.com/cf47b94a-54c3-4b47-a370-6b763cccf1fa%2FLG_OLED65BX6LB.png?v=1606150820547);*/
+        }
+
+        .mask-oralb {
+            clip-path: polygon(34.33% 16.57%, 33.95% 12.24%, 34.79% 5.96%, 50.67% 5.78%, 59.05% 5.63%, 59.8% 1.88%, 65.53% 0.43%, 68.59% 3.39%, 68.07% 6.28%, 68.63% 12.51%, 68.7% 18.78%, 68.44% 27.06%, 70.79% 31.91%, 70.52% 48%, 70.8% 67.73%, 71.1% 82.57%, 75.21% 84.87%, 77.43% 88.9%, 78.13% 91.51%, 78.45% 96.81%, 64.42% 96.62%, 50.62% 94.95%, 48.13% 89.15%, 45.35% 96.01%, 35.42% 96.4%, 25.34% 97.59%, 23.67% 93.98%, 24.06% 78.52%, 22.58% 73.54%, 25.63% 69.95%, 31.74% 71.51%, 32.69% 38.6%, 33.35% 21.44%);
+            height: 525px;
+            width: 374px;
+            
+        }
+
+        .mask-oralb .img_container {
+
+            height: 525px;
+            width: 374px;
+            background-size: contain;
+            background-image: url("Oralb.png");
+            background-position: center;
+        }
+
+
+        .mask-laag {
+            margin-left: 400px;
+            clip-path: polygon(55.53% 48.81%, 64.35% 30.98%, 65.91% 27.93%, 62.29% 26.14%, 69.14% 12.77%, 72.23% 8.71%, 76.72% 2.26%, 81.84% 0.55%, 89.14% 1.49%, 88.93% 10.53%, 99.71% 10.14%, 93.35% 21.87%, 83.79% 21.85%, 82.29% 25%, 75.05% 29.91%, 72.03% 33.07%, 69.82% 35.32%, 49.58% 75.63%, 44.96% 84.27%, 43.97% 89.75%, 49.89% 92.48%, 41.85% 96.67%, 31.41% 98.36%, 14.76% 94.95%, -1.51% 91.68%, 2.89% 88.04%, 11.78% 85.5%, 18.45% 86.18%, 28.63% 87.54%, 35.94% 84.11%, 41.83% 72.41%, 50.87% 57.28%, 54.1% 52.8%);
+           
+        }
+
+        .mask-laag .img_container {
+            height: 549px;
+            width: 298px;
+            background-size: contain;
+            background-image: url(Laag_img.png);
+            }
+
+            .img_container {
+            /*            object-fit: cover;*/
+            object-fit: contain !important;
+        }
+
+        .container {
+            
+        }
+
+        .mask {
+          position: absolute; 
+            overflow: hidden;
+        }
+
+        .gradient_test {
+            top: -400px;
+            left: -400px;
+            width: 300px;
+            height: 300px;
+            z-index: 90;
+            background: rgba(249, 244, 139, 0.4);
+            position: absolute;
+            background: linear-gradient(49deg, rgba(255, 255, 255, 1) 0%, rgba(238, 241, 197, 0.3) 7%, rgba(249, 244, 139, 0.5) 13%, rgba(255, 250, 232, 1) 22%, rgba(250, 255, 175, 0.5) 29%, rgba(253, 255, 229, 0) 40%);
+            width: 1300px;
+            height: 1300px;
+        }
+
+        .img_container {
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .img_container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 50;
+        }
+        
+        #animate {
+            position: fixed;
+            left: 39%;
+            top: 10px;
+/*            height: 110%;*/
+            padding: 10px 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container"> 
+ 
+       
+  
+        <div class="mask mask-oralb">
+            <div class="gradient_test "> 
+                       
+            </div>
+          <div class="img_container"></div> 
+        </div>
+  
+        <div class="mask mask-laag">
+              <div class="gradient_test "> 
+                <!--                <img src="Laag_img.png" class="img_container" /> -->
+            </div>
+            <div class="img_container"></div>
+          
+        </div>
+        
+        <div class="mask mask-miele-wcd">
+            <div class="gradient_test ">
+<!--                              <img src="Miele_WCD.png" class="img_container" />     -->
+            </div>
+            <div class="img_container"></div>
+        </div>
     </div>
 
-</div>
-<button id="animate">Animate </button>
+    <button id="animate">Animate </button>
 
-<script>
-    let btn = document.querySelector('#animate');
-    btn.addEventListener('click', () => {
+    <script>
+        let btn = document.querySelector('#animate');
+        btn.addEventListener('click', () => {
 
-        let tl = gsap.timeline({
+            let tl = gsap.timeline({
 
+            });
+
+            tl.to(".gradient_test", {
+                x: 400,
+                y: -400,
+                duration: 0.8
+            });
+
+
+            tl.to(".gradient_test", {
+                y: 0,
+                x: 0,
+                duration: 0.3
+            });
         });
-
-        tl.to("#gradient", {
-            x: 400,
-            y: -400,
-            duration: 0.8
-        });
-
-
-        tl.to("#gradient", {
-            y: 0,
-            x: 0,
-            duration: 0.3
-        });
-    });
-</script>
+    </script>
+</body>
