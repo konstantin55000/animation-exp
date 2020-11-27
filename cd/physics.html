@@ -1,0 +1,110 @@
+<html lang=en>
+<head>
+<meta charset=utf-8>
+<title>Фізика на шарика</title>
+    <style>
+        body {
+            background: #00251a;
+        }
+    </style>
+</head>
+<body onload="init()"> 
+    <button style="width: 80px; height: 20px;margin: 0 auto;display: block" id="reload">О</button>
+ <div id="canva" style="width: 800px; height: 600px; margin: 20px auto; background: #eee; border: 1px solid orange">
+    </div>
+<script>
+
+    
+   let canvas, context, container;
+         canvas = document.createElement( 'canvas' );
+          context = canvas.getContext("2d");
+    
+    let ball; 
+    let getRandomInt = function (min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    let vx = getRandomInt(-15,10); 
+    let vy;
+    
+    let gravity = 0.5;  
+    let bounce = 0.7; 
+    let xFriction = 0.1;
+ 
+    function init(){
+        setupCanvas();
+        vy = getRandomInt(-15,10); 
+        ball = {x:canvas.width / 2, y:100, radius:30, status: 0,   color:'orange', border:'#000'};
+ 
+    }
+ 
+    function draw() {
+        context.clearRect(0,0,canvas.width, canvas.height);  
+        context.beginPath();
+        context.arc(ball.x, ball.y, ball.radius, 0, Math.PI*2, false);
+        context.fillStyle = ball.color;
+        context.lineWidth = 5;
+        context.strokeStyle = ball.border;
+        context.stroke();   
+        context.fill();
+        context.closePath(); 
+        ballMovement(); 
+    }
+ 
+    setInterval(draw, 1000/35); 
+     
+    
+    function ballMovement(){
+        ball.x += vx;
+        ball.y += vy;
+        vy += gravity;
+        
+         
+        if (ball.x + ball.radius > canvas.width || ball.x - ball.radius < 0){
+            vx *= -1;
+        } 
+        
+          // Ball hits the floor
+        if (ball.y + ball.radius > canvas.height){  
+           ball.y = canvas.height - ball.radius; 
+              vy *= -bounce; 
+              if(vy<0 && vy>-2.1)
+                         vy=0; 
+             if(Math.abs(vx)<1.1)
+                 vx=0; 
+     xF();
+             
+    }
+        
+        
+    }
+    
+    function xF(){
+             if(vx>0)
+                 vx = vx - xFriction;
+             if(vx<0)
+                 vx = vx + xFriction;
+    }
+    
+    
+     function setupCanvas() { 
+        container = document.querySelector( '#canva' );
+        container.className = "container";
+
+   
+        canvas.width = 800;
+        canvas.height = 600;
+        context.strokeStyle ='orange';
+        document.body.appendChild( container );
+        container.appendChild(canvas);	
+ 
+}
+    
+      document.querySelector("#reload").addEventListener("mousedown", function() {
+              window.location.reload();
+   });
+ 
+        </script>
+    </body>
+</html>
